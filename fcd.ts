@@ -4,7 +4,7 @@ const utf16 = new TextDecoder("utf-16le");
 function memo<T>(
   _target: unknown,
   _propertyName: string,
-  descriptor: PropertyDescriptor,
+  descriptor: PropertyDescriptor
 ) {
   let cache: T;
   const method = descriptor.get!;
@@ -49,27 +49,27 @@ export class MiiStruct {
 
   @memo
   get isFavorite() {
-    return !!getBitNum(15, this.getPackedMiiinfo(), 0, 1);
+    return !!getBitNum(16, this.getPackedMiiinfo(), 1, 1);
   }
 
   @memo
   get favoriteColor() {
-    return getBitNum(15, this.getPackedMiiinfo(), 1, 4);
+    return getBitNum(16, this.getPackedMiiinfo(), 2, 4);
   }
 
   @memo
   get birthDay() {
-    return getBitNum(15, this.getPackedMiiinfo(), 5, 5);
+    return getBitNum(16, this.getPackedMiiinfo(), 6, 5);
   }
 
   @memo
   get birthMonth() {
-    return getBitNum(15, this.getPackedMiiinfo(), 10, 4);
+    return getBitNum(16, this.getPackedMiiinfo(), 11, 4);
   }
 
   @memo
   get miiGender() {
-    return getBitNum(15, this.getPackedMiiinfo(), 14, 1);
+    return getBitNum(16, this.getPackedMiiinfo(), 15, 1);
   }
 
   @memo
