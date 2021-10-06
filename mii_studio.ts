@@ -1,7 +1,12 @@
 import { assert } from "https://deno.land/std@0.82.0/testing/asserts.ts";
 
 export type MiiName = typeof MII_FIELDS[number];
-export type MiiData = Record<MiiName, number>;
+export type MiiData =
+  & Omit<
+    Record<MiiName, number>,
+    "hairFlipped" | "moleEnabled"
+  >
+  & { hairFlipped: boolean; moleEnabled: boolean };
 
 // For use with compatability testing
 export const MII_FIELDS_COMPAT = [
@@ -89,7 +94,7 @@ export const MII_FIELDS = [
   "eyebrowPosY",
 
   "faceColor",
-  "faceFeaturesType", // Facial Features / Blush
+  "faceMakeupType", // Facial Features / Blush
   "faceShapeType",
   "faceWrinklesType",
 
@@ -129,7 +134,7 @@ export const MII_FIELDS = [
 ] as const;
 
 export function encode(data: MiiData) {
-  return MII_FIELDS.map((fieldName) => encodeValue(data[fieldName])).join("");
+  return MII_FIELDS.map((fieldName) => encodeValue(+data[fieldName])).join("");
 }
 
 export function encodeValue(val: number) {
@@ -142,7 +147,11 @@ export function decode(encoded: string) {
   for (let i = 0, n = 0; i < MII_FIELDS.length; i++, n += 2) {
     const value = parseInt(encoded.slice(n, n + 2), 16);
     const name = MII_FIELDS[i];
-    decoded[name] = value;
+    if (name === "hairFlipped" || name === "moleEnabled") {
+      decoded[name] = !!value;
+    } else {
+      decoded[name] = value;
+    }
   }
   return decoded;
 }

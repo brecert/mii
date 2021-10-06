@@ -3,7 +3,7 @@ import * as base64 from "https://deno.land/std@0.82.0/encoding/base64.ts";
 
 import { MiiStruct } from "./fcd.ts";
 
-const miiData = base64.decode(
+export const miiData = base64.decode(
   "AwAAQPLA80BEYv7Q1Y1wf7eJ9wEB6QAAi2FCAHIAZQBjAGUAcgB0AAAAAAAAAGJIAhAFBkpoRBoNE0QUQRQIRg0AgEDSAaBwQgByAGUAYwBlAHIAdAAAAAAAAAAAAA3L",
 ).buffer;
 
@@ -23,10 +23,10 @@ Deno.test("basic", () => {
     bodyHeight: 98,
     bodyWidth: 72,
     faceColor: 0,
-    faceType: 1,
+    faceShapeType: 1,
     canMingle: false,
-    faceMakeup: 1,
-    faceWrinkles: 0,
+    faceMakeupType: 1,
+    faceWrinklesType: 0,
     hairType: 5,
     hairFlipped: false,
     hairColor: 6,
