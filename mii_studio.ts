@@ -68,11 +68,11 @@ export const MII_FIELDS_COMPAT = [
 
 export const MII_FIELDS = [
   "faceHairColor",
-  "faceGoateeType",
+  "goateeType",
 
-  "miiWidth",
+  "bodyWidth",
 
-  "eyeScaleY",
+  "eyeStretch",
   "eyeColor",
   "eyeRotation",
   "eyeSize",
@@ -80,7 +80,7 @@ export const MII_FIELDS = [
   "eyePosX",
   "eyePosY",
 
-  "eyebrowScaleY",
+  "eyebrowStretch",
   "eyebrowColor",
   "eyebrowRotation",
   "eyebrowSize",
@@ -106,20 +106,20 @@ export const MII_FIELDS = [
   "hairFlipped",
   "hairType",
 
-  "miiHeight",
+  "bodyHeight",
 
   "moleSize",
   "moleEnabled",
   "molePosX",
   "molePosY",
 
-  "mouthScaleY",
+  "mouthStretch",
   "mouthColor",
   "mouthSize",
   "mouthType",
   "mouthPosY",
 
-  "mustacheScale",
+  "mustacheSize",
   "mustacheType",
   "mustachePosY",
 

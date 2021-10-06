@@ -68,7 +68,7 @@ export class MiiStruct {
   }
 
   @memo
-  get gender() {
+  get miiGender() {
     return getBitNum(15, this.getPackedMiiinfo(), 14, 1);
   }
 
@@ -131,7 +131,7 @@ export class MiiStruct {
   }
 
   @memo
-  get hairFlip() {
+  get hairFlipped() {
     return !!getBitNum(8, this.getPackedHairData(), 4, 1);
   }
 
@@ -390,7 +390,7 @@ export class MiiStruct {
       favoriteColor: this.favoriteColor,
       birthDay: this.birthDay,
       birthMonth: this.birthMonth,
-      gender: this.gender,
+      miiGender: this.miiGender,
       miiName: this.miiName,
       bodyHeight: this.bodyHeight,
       bodyWidth: this.bodyWidth,
@@ -400,7 +400,7 @@ export class MiiStruct {
       faceMakeup: this.faceMakeup,
       faceWrinkles: this.faceWrinkles,
       hairType: this.hairType,
-      hairFlip: this.hairFlip,
+      hairFlipped: this.hairFlipped,
       hairColor: this.hairColor,
       eyePosY: this.eyePosY,
       eyePosX: this.eyePosX,
