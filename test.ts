@@ -4,11 +4,11 @@ import {
 } from "https://deno.land/std@0.82.0/testing/asserts.ts";
 import * as base64 from "https://deno.land/std@0.82.0/encoding/base64.ts";
 
-import * as MiiFormats from "./mod.ts";
+import * as mii from "./mod.ts";
 
 Deno.test("import resolves", () => {
-  assertExists(MiiFormats.WiiU);
-  assertExists(MiiFormats.WiiU.from);
+  assertExists(mii.formats.WiiU);
+  assertExists(mii.formats.WiiU.from);
 });
 
 Deno.test("conversion works", () => {
@@ -20,7 +20,7 @@ Deno.test("conversion works", () => {
   ).buffer;
 
   assertObjectMatch(
-    MiiFormats.convert.intoMiiStudio(MiiFormats.FaceCoreData.from(miiFCDData)),
-    MiiFormats.MiiStudio.decode(miiStudioEncoded),
+    mii.utils.convert.intoMiiStudio(mii.formats.FaceCoreData.from(miiFCDData)),
+    mii.formats.MiiStudio.decode(miiStudioEncoded),
   );
 });
