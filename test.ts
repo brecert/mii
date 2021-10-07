@@ -7,8 +7,8 @@ import * as base64 from "https://deno.land/std@0.82.0/encoding/base64.ts";
 import * as mii from "./mod.ts";
 
 Deno.test("import resolves", () => {
-  assertExists(mii.formats.WiiU);
-  assertExists(mii.formats.WiiU.from);
+  assertExists(mii.format.WiiU);
+  assertExists(mii.format.WiiU.from);
 });
 
 Deno.test("conversion works", () => {
@@ -20,7 +20,7 @@ Deno.test("conversion works", () => {
   ).buffer;
 
   assertObjectMatch(
-    mii.utils.convert.intoMiiStudio(mii.formats.FaceCoreData.from(miiFCDData)),
-    mii.formats.MiiStudio.decode(miiStudioEncoded),
+    mii.format.convert.intoMiiStudio(mii.format.FaceCoreData.from(miiFCDData)),
+    mii.format.MiiStudio.decode(miiStudioEncoded),
   );
 });

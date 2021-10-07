@@ -1,6 +1,7 @@
-import * as FCD from "./fcd.ts";
-import * as MiiStudio from "./mii_studio.ts";
+import * as FCD from "./fcd/fcd.ts";
+import * as MiiStudio from "./mii_studio/mii_studio.ts";
 
+// temporary until the common mii format is finished
 export function intoMiiStudio(data: FCD.MiiStruct): MiiStudio.MiiData {
   const clone = { ...data.toObject() };
 
