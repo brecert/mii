@@ -2,10 +2,7 @@ import { assert } from "https://deno.land/std@0.82.0/testing/asserts.ts";
 
 export type MiiName = typeof MII_FIELDS[number];
 export type MiiData =
-  & Omit<
-    Record<MiiName, number>,
-    "hairFlipped" | "moleEnabled"
-  >
+  & Omit<Record<MiiName, number>, "hairFlipped" | "moleEnabled">
   & { hairFlipped: boolean; moleEnabled: boolean };
 
 // For use with compatability testing

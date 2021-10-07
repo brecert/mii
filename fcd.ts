@@ -4,7 +4,7 @@ const utf16 = new TextDecoder("utf-16le");
 function memo<T>(
   _target: unknown,
   _propertyName: string,
-  descriptor: PropertyDescriptor
+  descriptor: PropertyDescriptor,
 ) {
   let cache: T;
   const method = descriptor.get!;
