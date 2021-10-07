@@ -6,7 +6,7 @@ export const encoded =
 
 export const decoded: MiiStudio.MiiData = {
   faceHairColor: 8,
-  goateeType: 0,
+  beardType: 0,
   bodyWidth: 19,
   eyeStretch: 3,
   eyeColor: 11,

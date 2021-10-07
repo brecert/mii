@@ -312,7 +312,7 @@ export class MiiStruct {
   }
 
   @memo
-  get goateeType() {
+  get beardType() {
     return getBitNum(16, this.getPackedFaceHairData(), 13, 3);
   }
 
@@ -428,7 +428,7 @@ export class MiiStruct {
       mustachePosY: this.mustachePosY,
       mustacheSize: this.mustacheSize,
       faceHairColor: this.faceHairColor,
-      goateeType: this.goateeType,
+      beardType: this.beardType,
       glassesPosY: this.glassesPosY,
       glassesSize: this.glassesSize,
       glassesColor: this.glassesColor,

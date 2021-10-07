@@ -56,7 +56,7 @@ Deno.test("basic", () => {
     mustachePosY: 16,
     mustacheSize: 2,
     faceHairColor: 0,
-    goateeType: 0,
+    beardType: 0,
     glassesPosY: 0,
     glassesSize: 3,
     glassesColor: 5,

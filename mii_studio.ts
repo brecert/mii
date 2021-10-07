@@ -70,7 +70,7 @@ export const MII_FIELDS_COMPAT = [
 
 export const MII_FIELDS = [
   "faceHairColor",
-  "goateeType",
+  "beardType",
 
   "bodyWidth",
 
