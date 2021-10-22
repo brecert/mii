@@ -112,8 +112,9 @@ export class FFLI {
 
   getTexture({ ptr, compression }: FilePointer): FFLITexture {
     const rawData = new Uint8Array(this.buffer, ptr.pos, ptr.len);
-    const data =
-      compression === CompressionType.ZLib ? unzlib(rawData) : rawData;
+    const data = compression === CompressionType.ZLib
+      ? unzlib(rawData)
+      : rawData;
 
     const view = new DataView(data.buffer, data.length - 12, 12);
 

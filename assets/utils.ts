@@ -1,5 +1,5 @@
 import * as png from "https://deno.land/x/pngs@0.1.1/mod.ts";
-import { TextureFormat, FFLITexture } from "./ffli.ts";
+import { FFLITexture, TextureFormat } from "./ffli.ts";
 
 export const FORMAT_MAP = {
   [TextureFormat.Grayscale]: png.ColorType.Grayscale,
@@ -15,9 +15,9 @@ export const FORMAT_MAP = {
 
 /** Encodes an FFLITexture to a PNG */
 export function pngEncodeTexture(texture: FFLITexture) {
-  const data = texture.getTextureData()
-  
-  if(texture.format === TextureFormat.GrayscaleAlpha) {
+  const data = texture.getTextureData();
+
+  if (texture.format === TextureFormat.GrayscaleAlpha) {
     // swap alpha and grayscale value to correct amount
     for (let i = 0; i < data.length; i += 2) {
       [data[i], data[i + 1]] = [data[i + 1], data[i]];
