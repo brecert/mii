@@ -1,4 +1,4 @@
-import { assertEquals } from "https://deno.land/std@0.82.0/testing/asserts.ts";
+import { assertEquals } from "https://deno.land/std@0.127.0/testing/asserts.ts";
 import { unzlib } from "https://deno.land/x/denoflate@1.2.1/mod.ts";
 
 export type Pointer = {

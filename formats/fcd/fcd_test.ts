@@ -1,5 +1,5 @@
-import { assertEquals } from "https://deno.land/std@0.82.0/testing/asserts.ts";
-import * as base64 from "https://deno.land/std@0.82.0/encoding/base64.ts";
+import { assertEquals } from "https://deno.land/std@0.171.0/testing/asserts.ts";
+import * as base64 from "https://deno.land/std@0.171.0/encoding/base64.ts";
 
 import { MiiStruct } from "./fcd.ts";
 

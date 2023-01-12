@@ -1,6 +1,8 @@
-import { Md5 } from "https://deno.land/std@0.110.0/hash/md5.ts";
+import { crypto } from "https://deno.land/std@0.171.0/crypto/mod.ts";
+import { toHashString } from "https://deno.land/std@0.171.0/crypto/to_hash_string.ts";
 
 type AssetHeight = 512 | 768;
+const encoder = new TextEncoder();
 
 export class Asset {
   root = "https://mii-studio.akamaized.net/editor/1";
@@ -10,7 +12,11 @@ export class Asset {
   constructor(public name: string, public parts: (string | number)[]) {}
 
   getUrl() {
-    return `${this.root}/${this.format}/${this.height}/${this.getHashPath()}.${this.format}`;
+    return `${this.root}/${this.getPath()}`;
+  }
+
+  getPath() {
+    return `${this.format}/${this.height}/${this.getHashPath()}.${this.format}`;
   }
 
   getSubPath() {
@@ -18,7 +24,9 @@ export class Asset {
   }
 
   getHashPath() {
-    const hashed = new Md5().update(this.getSubPath()).toString();
+    const hashed = toHashString(
+      crypto.subtle.digestSync("MD5", encoder.encode(this.getSubPath())),
+    );
     return `${hashed[0]}/${hashed[1]}/${hashed[2]}/${hashed.slice(3, 12)}`;
   }
 

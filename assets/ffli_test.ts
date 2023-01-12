@@ -1,5 +1,5 @@
-import { crypto } from "https://deno.land/std@0.112.0/crypto/mod.ts";
-import { assertEquals } from "https://deno.land/std@0.112.0/testing/asserts.ts";
+import { crypto } from "https://deno.land/std@0.171.0/crypto/mod.ts";
+import { assertEquals } from "https://deno.land/std@0.171.0/testing/asserts.ts";
 
 import { FFLI } from "./ffli.ts";
 import * as utils from "./utils.ts";

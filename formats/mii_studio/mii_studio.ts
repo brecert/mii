@@ -1,4 +1,4 @@
-import { assert } from "https://deno.land/std@0.82.0/testing/asserts.ts";
+import { assert } from "https://deno.land/std@0.171.0/testing/asserts.ts";
 
 export type MiiName = typeof MII_FIELDS[number];
 export type MiiData =
