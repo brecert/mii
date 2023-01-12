@@ -31,7 +31,7 @@ export function intoMiiStudio(data: FCD.MiiStruct): MiiStudio.MiiData {
 }
 
 export function fromMiitool(data: Miitool.MiiCore): MiiStudio.MiiData {
-  return {
+  const clone = {
     miiGender: data.sex,
     favoriteColor: data.favorite_color,
     bodyHeight: data.height,
@@ -79,4 +79,27 @@ export function fromMiitool(data: Miitool.MiiCore): MiiStudio.MiiData {
     molePosX: data.mole_x_position,
     molePosY: data.mole_y_position,
   };
+
+  if (clone.hairColor === 0) {
+    clone.hairColor = 8;
+  }
+
+  if (clone.faceHairColor === 0) {
+    clone.faceHairColor = 8;
+  }
+
+  if (clone.eyebrowColor === 0) {
+    clone.eyebrowColor = 8;
+  }
+
+  if (clone.glassesColor === 0) {
+    clone.glassesColor = 8;
+  } else if (clone.glassesColor < 6) {
+    clone.glassesColor += 13;
+  }
+
+  clone.eyeColor += 8;
+  clone.mouthColor += 19;
+
+  return clone;
 }

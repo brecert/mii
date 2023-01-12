@@ -37,8 +37,8 @@ export class Asset {
   static fromFace(face: Face) {
     return new this("face", [
       face.shape,
-      face.features,
       face.wrinkles,
+      face.features,
       face.color,
     ]);
   }
